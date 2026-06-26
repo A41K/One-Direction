@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://8o2eko1ryes2"]
+
+[ext_resource type="FontFile" uid="uid://t4jofdeak0hr" path="res://assets/ByteBounce.ttf" id="1_32cxx"]
+[ext_resource type="Script" uid="uid://cfer3pvp86h7a" path="res://scripts/gamescene.gd" id="1_40k76"]
+
+[node name="Gamescene" type="Control" unique_id=1105292702]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_40k76")
+metadata/_edit_horizontal_guides_ = [375.0]
+metadata/_edit_vertical_guides_ = [601.0]
+
+[node name="Label" type="Label" parent="." unique_id=947552860]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 1200.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 128
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="Level0" type="Button" parent="." unique_id=416095282]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 112.0
+offset_right = 234.53702
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+0"
+
+[node name="Tutorial" type="Button" parent="." unique_id=776995655]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 500.0
+offset_right = 708.0
+offset_bottom = 643.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Tutorial"
+
+[node name="Back" type="Button" parent="." unique_id=1451335956]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 595.0
+offset_right = 181.53702
+offset_bottom = 658.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[connection signal="pressed" from="Level0" to="." method="_on_level_0_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

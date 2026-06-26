@@ -14,6 +14,11 @@ config/name="One Direction"
 run/main_scene="uid://dug8055nqyn30"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+key_scheme="arrow"
+
+[autoload]
+
+Global="*uid://c65g6dbfxntax"
 
 [display]
 

@@ -12,7 +12,6 @@ const max_speed: float = 150
 const acceleration: float = 12
 const friction: float = 26
 
-# Double-tap detection
 var last_right_press_time: float = 0.0
 const double_tap_window: float = 0.3
 
@@ -26,7 +25,6 @@ func _ready() -> void:
 
 
 func _get_axes() -> Array:
-	# Returns [gravity_dir, move_dir] as Vector2 based on current rotation
 	# Steps: 0=normal(down), 1=left, 2=up, 3=right
 	match world_rotation_steps:
 		0: return [Vector2.DOWN, Vector2.RIGHT]
@@ -43,17 +41,14 @@ func _physics_process(delta: float) -> void:
 	var grav_dir: Vector2 = axes[0]
 	var move_dir: Vector2 = axes[1]
 
-	# Update CharacterBody2D so is_on_floor() works correctly
 	up_direction = -grav_dir
 
-	var x_input: float = Input.get_action_strength("right") - Input.get_action_strength("left")
+	var x_input: float = Input.get_action_strength("ui_right") - Input.get_action_strength("left")
 	var velocity_weight: float = delta * (acceleration if x_input else friction)
 
-	# Project velocity onto move axis and lerp it
 	var move_speed: float = velocity.dot(move_dir)
 	move_speed = lerp(move_speed, x_input * max_speed, velocity_weight)
 
-	# Project velocity onto gravity axis
 	var grav_speed: float = velocity.dot(grav_dir)
 
 	if is_wall_sticking:
@@ -69,7 +64,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		grav_speed = jump_height
 
-	# Head nudge (along move axis)
 	if grav_speed < jump_height / 2.0:
 		var head_collision: Array = [
 			$Left_HeadNudge.is_colliding(), $Left_HeadNudge2.is_colliding(),
@@ -81,7 +75,6 @@ func _physics_process(delta: float) -> void:
 			if head_collision[2]:
 				global_position -= move_dir * 1.75
 
-	# Ledge hop (along move axis)
 	if grav_speed > -30 and abs(move_speed) > 3:
 		if $Left_LedgeHop.is_colliding() and !$Left_LedgeHop2.is_colliding() and x_input < 0:
 			grav_speed += jump_height / 3.25
@@ -91,7 +84,6 @@ func _physics_process(delta: float) -> void:
 	if not is_wall_sticking:
 		grav_speed += gravity
 
-	# Reconstruct velocity from the two axes
 	velocity = move_dir * move_speed + grav_dir * grav_speed
 
 	move_and_slide()
@@ -123,12 +115,10 @@ func _rotate_world() -> void:
 
 
 func respawn() -> void:
-	# Reset position and velocity
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	gravity = 20.0
 
-	# Reset rotation back to normal
 	world_rotation_steps = 0
 	$Camera2D.rotation_degrees = 0.0
 	$Sprite2D.rotation_degrees = 0.0
