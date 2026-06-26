@@ -8,13 +8,13 @@ var is_wall_sticking: bool = false
 
 var world_rotation_steps: int = 0
 
-const max_speed: float = 300
-const acceleration: float = 16
-const friction: float = 20
+const max_speed: float = 150
+const acceleration: float = 12
+const friction: float = 26
 
 # Double-tap detection
 var last_right_press_time: float = 0.0
-const double_tap_window: float = 0.4
+const double_tap_window: float = 0.3
 
 var spawn_position: Vector2
 

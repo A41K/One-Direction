@@ -48,4 +48,4 @@ func _set_controls(key: Key) -> void:
 
 func _load_game_scene() -> void:
 	# Change to your game scene path
-	get_tree().change_scene_to_file("res://scenes/testmap.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_0.tscn")
