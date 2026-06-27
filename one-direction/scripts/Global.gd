@@ -12,8 +12,11 @@ var timer_running: bool = false
 
 var best_times: Dictionary = {}
 
+var _is_web: bool = false
+
 
 func _ready() -> void:
+	_is_web = OS.get_name() == "Web"
 	_load_save()
 
 
@@ -22,24 +25,40 @@ func _process(delta: float) -> void:
 		total_time += delta
 
 
+# --- Save / Load ---
+
 func _load_save() -> void:
-	var cfg := ConfigFile.new()
-	if cfg.load(SAVE_PATH) != OK:
-		return
-	key_scheme = cfg.get_value("player", "key_scheme", "")
-	best_times = cfg.get_value("player", "best_times", {})
+	if _is_web:
+		var scheme = JavaScriptBridge.eval("localStorage.getItem('key_scheme') || ''")
+		var times_json = JavaScriptBridge.eval("localStorage.getItem('best_times') || '{}'")
+		key_scheme = str(scheme)
+		var parsed = JSON.parse_string(str(times_json))
+		if parsed is Dictionary:
+			best_times = parsed
+	else:
+		var cfg := ConfigFile.new()
+		if cfg.load(SAVE_PATH) != OK:
+			return
+		key_scheme = cfg.get_value("player", "key_scheme", "")
+		best_times = cfg.get_value("player", "best_times", {})
+
 	if key_scheme != "":
 		_apply_scheme(key_scheme)
 
 
 func _write_save() -> void:
-	var cfg := ConfigFile.new()
-	# Preserve existing data before writing
-	cfg.load(SAVE_PATH)
-	cfg.set_value("player", "key_scheme", key_scheme)
-	cfg.set_value("player", "best_times", best_times)
-	cfg.save(SAVE_PATH)
+	if _is_web:
+		JavaScriptBridge.eval("localStorage.setItem('key_scheme', '%s')" % key_scheme)
+		JavaScriptBridge.eval("localStorage.setItem('best_times', '%s')" % JSON.stringify(best_times))
+	else:
+		var cfg := ConfigFile.new()
+		cfg.load(SAVE_PATH)
+		cfg.set_value("player", "key_scheme", key_scheme)
+		cfg.set_value("player", "best_times", best_times)
+		cfg.save(SAVE_PATH)
 
+
+# --- Key scheme ---
 
 func save_scheme(scheme: String) -> void:
 	key_scheme = scheme
@@ -58,6 +77,8 @@ func _apply_scheme(scheme: String) -> void:
 	event.keycode = key
 	InputMap.action_add_event("right", event)
 
+
+# --- Timer ---
 
 func start_level_timer() -> void:
 	level_start_time = total_time

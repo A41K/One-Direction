@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 
 	up_direction = -grav_dir
 
-	var x_input: float = Input.get_action_strength("ui_right") - Input.get_action_strength("left")
+	var x_input: float = Input.get_action_strength("right") - Input.get_action_strength("left")
 
 	if is_in_switch_zone:
 		x_input = -x_input
