@@ -1,7 +1,6 @@
 extends Node
 
-const SAVE_KEY := "application/key_scheme"
-const BEST_TIMES_KEY := "application/best_times"
+const SAVE_PATH := "user://save.cfg"
 
 var key_scheme: String = ""
 
@@ -15,12 +14,7 @@ var best_times: Dictionary = {}
 
 
 func _ready() -> void:
-	if ProjectSettings.has_setting(SAVE_KEY):
-		key_scheme = ProjectSettings.get_setting(SAVE_KEY)
-		if key_scheme != "":
-			_apply_scheme(key_scheme)
-	if ProjectSettings.has_setting(BEST_TIMES_KEY):
-		best_times = ProjectSettings.get_setting(BEST_TIMES_KEY)
+	_load_save()
 
 
 func _process(delta: float) -> void:
@@ -28,10 +22,28 @@ func _process(delta: float) -> void:
 		total_time += delta
 
 
+func _load_save() -> void:
+	var cfg := ConfigFile.new()
+	if cfg.load(SAVE_PATH) != OK:
+		return
+	key_scheme = cfg.get_value("player", "key_scheme", "")
+	best_times = cfg.get_value("player", "best_times", {})
+	if key_scheme != "":
+		_apply_scheme(key_scheme)
+
+
+func _write_save() -> void:
+	var cfg := ConfigFile.new()
+	# Preserve existing data before writing
+	cfg.load(SAVE_PATH)
+	cfg.set_value("player", "key_scheme", key_scheme)
+	cfg.set_value("player", "best_times", best_times)
+	cfg.save(SAVE_PATH)
+
+
 func save_scheme(scheme: String) -> void:
 	key_scheme = scheme
-	ProjectSettings.set_setting(SAVE_KEY, scheme)
-	ProjectSettings.save()
+	_write_save()
 	_apply_scheme(scheme)
 
 
@@ -53,14 +65,12 @@ func start_level_timer() -> void:
 
 
 func finish_level_timer(level_name: String) -> void:
-	var level_time = total_time - level_start_time
+	var level_time := total_time - level_start_time
 	level_times.append(level_time)
 	timer_running = false
-	# Save if it's a new best
 	if not best_times.has(level_name) or level_time < best_times[level_name]:
 		best_times[level_name] = level_time
-		ProjectSettings.set_setting(BEST_TIMES_KEY, best_times)
-		ProjectSettings.save()
+		_write_save()
 
 
 func reset_timer() -> void:
@@ -75,9 +85,9 @@ func get_current_level_time() -> float:
 
 
 func format_time(seconds: float) -> String:
-	var mins = int(seconds) / 60
-	var secs = int(seconds) % 60
-	var ms = int(fmod(seconds, 1.0) * 100)
+	var mins := int(seconds) / 60
+	var secs := int(seconds) % 60
+	var ms := int(fmod(seconds, 1.0) * 100)
 	return "%02d:%02d.%02d" % [mins, secs, ms]
 
 
