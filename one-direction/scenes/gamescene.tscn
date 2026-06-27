@@ -10,11 +10,19 @@ script = ExtResource("1_40k76")
 metadata/_edit_horizontal_guides_ = [375.0]
 metadata/_edit_vertical_guides_ = [601.0]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=15008534]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 1209.0
+offset_bottom = 691.0
+color = Color(0.34781712, 0.3478169, 0.3478169, 1)
+
 [node name="Label" type="Label" parent="." unique_id=947552860]
 layout_mode = 0
-offset_top = 25.0
+offset_top = 17.0
 offset_right = 1200.0
-offset_bottom = 113.0
+offset_bottom = 105.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 128
 text = "Levels"

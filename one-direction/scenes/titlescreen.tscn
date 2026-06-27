@@ -21,6 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6d6rd")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1679824686]
+layout_mode = 0
+offset_left = -599.0
+offset_top = -345.0
+offset_right = 616.0
+offset_bottom = 353.0
+color = Color(0.34781712, 0.3478169, 0.3478169, 1)
+
 [node name="Label" type="Label" parent="." unique_id=1785837924]
 layout_mode = 1
 anchors_preset = 8
@@ -28,19 +36,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = -149.0
-offset_right = 203.0
-offset_bottom = -46.0
+offset_left = -602.0
+offset_top = -147.0
+offset_right = 600.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("3_vhbaf")
+theme_override_font_sizes/font_size = 150
 text = "One Direction"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="Button" parent="." unique_id=1299534311]
 layout_mode = 0
-offset_left = -101.0
-offset_right = 96.0
+offset_left = -99.0
+offset_right = 98.0
 offset_bottom = 96.0
 theme_override_font_sizes/font_size = 64
 text = "Play"
