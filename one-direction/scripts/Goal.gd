@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var level_name: String = "tutorial"
+@export var level_name: String = "level_0"
 @export var next_scene: String = "res://scenes/gamescene.tscn"
 
 
