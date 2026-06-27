@@ -1,0 +1,10 @@
+extends Area2D
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		body.is_in_switch_zone = true
+
+
+func _on_body_exited(body: Node) -> void:
+	if body.is_in_group("player"):
+		body.is_in_switch_zone = false

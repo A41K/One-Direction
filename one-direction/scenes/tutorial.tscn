@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dj1x0pae5511q" path="res://assets/Arrow.png" id="8_nlqja"]
 [ext_resource type="Texture2D" uid="uid://cw1hdtm1ll5qa" path="res://assets/tutorial/revalation.png" id="9_nlqja"]
 [ext_resource type="Texture2D" uid="uid://mmdxetxj3exo" path="res://assets/tutorial/current end.png" id="10_tbcdj"]
-[ext_resource type="Script" uid="uid://bedt6ktokbt2j" path="res://scripts/next_scene.gd" id="11_ej4tf"]
+[ext_resource type="Script" uid="uid://bedt6ktokbt2j" path="res://scripts/Goal.gd" id="11_ej4tf"]
 [ext_resource type="Texture2D" uid="uid://8636xk1xp3xx" path="res://assets/EndStar.png" id="12_0hilk"]
+[ext_resource type="Script" uid="uid://btwyq77devqsd" path="res://scripts/fall_area.gd" id="13_ej4tf"]
+[ext_resource type="Script" uid="uid://b3f2otnacfqwp" path="res://scripts/LevelTimer.gd" id="14_0hilk"]
+[ext_resource type="FontFile" uid="uid://t4jofdeak0hr" path="res://assets/ByteBounce.ttf" id="14_wr8iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0epgs"]
 size = Vector2(20, 19.999985)
@@ -293,6 +296,12 @@ texture_region_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_g2equ")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hilk"]
+size = Vector2(187.4984, 10.599701)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e13mp"]
+size = Vector2(15.999992, 39.29985)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr8iv"]
 size = Vector2(18, 18)
 
@@ -399,13 +408,57 @@ position = Vector2(634.00006, -367)
 scale = Vector2(0.15178539, 0.15178542)
 texture = ExtResource("10_tbcdj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=432548788]
+[node name="DeathZone" type="Node" parent="." unique_id=1323197459]
+
+[node name="Death" type="Area2D" parent="DeathZone" unique_id=244274507]
+position = Vector2(209, -288)
+script = ExtResource("13_ej4tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death" unique_id=1873442449]
+position = Vector2(-70, -161)
+shape = SubResource("RectangleShape2D_0hilk")
+
+[node name="Death2" type="Area2D" parent="DeathZone" unique_id=877549878]
+position = Vector2(209, -288)
+script = ExtResource("13_ej4tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death2" unique_id=1171582577]
+position = Vector2(283, 15)
+shape = SubResource("RectangleShape2D_0hilk")
+
+[node name="Death3" type="Area2D" parent="DeathZone" unique_id=551790354]
+position = Vector2(209, -288)
+script = ExtResource("13_ej4tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death3" unique_id=1575891040]
+position = Vector2(49, -135)
+shape = SubResource("RectangleShape2D_e13mp")
+
+[node name="Timer" type="Node" parent="." unique_id=171274563]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Timer" unique_id=292060527]
+
+[node name="Label" type="Label" parent="Timer/CanvasLayer" unique_id=446519999]
+offset_left = 25.0
+offset_top = 21.0
+offset_right = 240.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("14_wr8iv")
+theme_override_font_sizes/font_size = 64
+script = ExtResource("14_0hilk")
+
+[node name="Goal" type="Area2D" parent="." unique_id=432548788]
 position = Vector2(632, -319)
 script = ExtResource("11_ej4tf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2070989695]
+[node name="Sprite2D" type="Sprite2D" parent="Goal" unique_id=2070989695]
 scale = Vector2(0.083984375, 0.083984375)
 texture = ExtResource("12_0hilk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1195864499]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=1195864499]
 shape = SubResource("RectangleShape2D_wr8iv")
+
+[connection signal="body_entered" from="DeathZone/Death" to="DeathZone/Death" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathZone/Death2" to="DeathZone/Death2" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathZone/Death3" to="DeathZone/Death3" method="_on_body_entered"]
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]

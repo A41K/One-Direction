@@ -17,6 +17,8 @@ const double_tap_window: float = 0.3
 
 var spawn_position: Vector2
 
+var is_in_switch_zone: bool = false
+
 
 func _ready() -> void:
 	print("Player initialized")
@@ -25,7 +27,6 @@ func _ready() -> void:
 
 
 func _get_axes() -> Array:
-	# Steps: 0=normal(down), 1=left, 2=up, 3=right
 	match world_rotation_steps:
 		0: return [Vector2.DOWN, Vector2.RIGHT]
 		1: return [Vector2.LEFT, Vector2.UP]
@@ -44,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	up_direction = -grav_dir
 
 	var x_input: float = Input.get_action_strength("ui_right") - Input.get_action_strength("left")
+
+	if is_in_switch_zone:
+		x_input = -x_input
+
 	var velocity_weight: float = delta * (acceleration if x_input else friction)
 
 	var move_speed: float = velocity.dot(move_dir)
@@ -118,6 +123,8 @@ func respawn() -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	gravity = 20.0
+	Global.start_level_timer()
+	is_in_switch_zone = false
 
 	world_rotation_steps = 0
 	$Camera2D.rotation_degrees = 0.0

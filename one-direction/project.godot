@@ -15,6 +15,10 @@ run/main_scene="uid://dug8055nqyn30"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 key_scheme="arrow"
+best_times={
+"level_0": 5.3089406666667625,
+"tutorial": 2.840000000000444
+}
 
 [autoload]
 
