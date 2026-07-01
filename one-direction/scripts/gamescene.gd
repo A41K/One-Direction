@@ -2,9 +2,22 @@ extends Control
 
 
 func _ready() -> void:
-	$Level0/Level0BestTime.text = Global.get_best_time("level_0")
-	$Level1/Level1BestTime.text = Global.get_best_time("level_1")
+	_update_level_display("level_0", $Level0/Level0BestTime, $Level0/Level0Coins)
+	_update_level_display("level_1", $Level1/Level1BestTime, $Level1/Level1Coins)
+	_update_level_display("level_2", $Level2/Level2BestTime, $Level2/Level2Coins)
 	$Tutorial/TutorialBestTime.text = Global.get_best_time("tutorial")
+
+
+func _update_level_display(level_id: String, time_label: Label, coins_label: Label) -> void:
+	time_label.text = Global.get_best_time(level_id)
+
+	var collected := Global.get_level_coin_collected(level_id)
+	var total := Global.get_level_coin_total(level_id)
+
+	if total > 0:
+		coins_label.text = "%d / %d" % [collected, total]
+	else:
+		coins_label.text = ""
 
 
 func _process(delta: float) -> void:
@@ -25,3 +38,7 @@ func _on_level_0_pressed() -> void:
 
 func _on_level_1_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+
+
+func _on_level_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level_2.tscn")

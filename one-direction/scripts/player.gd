@@ -27,16 +27,33 @@ func _ready() -> void:
 
 
 func _get_axes() -> Array:
+	var axes: Array
 	match world_rotation_steps:
-		0: return [Vector2.DOWN, Vector2.RIGHT]
-		1: return [Vector2.LEFT, Vector2.UP]
-		2: return [Vector2.UP, Vector2.RIGHT]
-		3: return [Vector2.RIGHT, Vector2.DOWN]
-	return [Vector2.DOWN, Vector2.RIGHT]
+		0: axes = [Vector2.DOWN, Vector2.RIGHT]
+		1: axes = [Vector2.LEFT, Vector2.UP]
+		2: axes = [Vector2.UP, Vector2.RIGHT]
+		3: axes = [Vector2.RIGHT, Vector2.DOWN]
+		_: axes = [Vector2.DOWN, Vector2.RIGHT]
+
+	if is_in_switch_zone:
+		axes[0] = -axes[0]
+		axes[1] = -axes[1]
+
+	return axes
+
+
+func _update_world_visuals() -> void:
+	var target_deg: float = world_rotation_steps * -90.0
+	if is_in_switch_zone:
+		target_deg += 180.0
+
+	$Camera2D.rotation_degrees = target_deg
+	$Sprite2D.rotation_degrees = -target_deg
 
 
 func _physics_process(delta: float) -> void:
 	_handle_double_tap_input()
+	_update_world_visuals()
 
 	var axes = _get_axes()
 	var grav_dir: Vector2 = axes[0]
@@ -45,9 +62,6 @@ func _physics_process(delta: float) -> void:
 	up_direction = -grav_dir
 
 	var x_input: float = Input.get_action_strength("right") - Input.get_action_strength("left")
-
-	if is_in_switch_zone:
-		x_input = -x_input
 
 	var velocity_weight: float = delta * (acceleration if x_input else friction)
 
@@ -109,14 +123,8 @@ func _handle_double_tap_input() -> void:
 
 func _rotate_world() -> void:
 	world_rotation_steps = (world_rotation_steps + 1) % 4
-	var target_deg: float = world_rotation_steps * -90.0
-
-	var cam: Camera2D = $Camera2D
-	cam.rotation_degrees = target_deg
-
-	$Sprite2D.rotation_degrees = -target_deg
-
-	print("World rotated to: ", target_deg, " deg")
+	_update_world_visuals()
+	print("World rotated to step: ", world_rotation_steps)
 
 
 func respawn() -> void:
@@ -127,7 +135,6 @@ func respawn() -> void:
 	is_in_switch_zone = false
 
 	world_rotation_steps = 0
-	$Camera2D.rotation_degrees = 0.0
-	$Sprite2D.rotation_degrees = 0.0
+	_update_world_visuals()
 
 	print("Player respawned at: ", spawn_position)

@@ -12,6 +12,11 @@ var timer_running: bool = false
 
 var best_times: Dictionary = {}
 
+# Coins
+var collected_coins: Dictionary = {}       
+var level_coin_totals: Dictionary = {}   
+signal coin_collected(coin_id: String, total_collected: int)
+
 var _is_web: bool = false
 
 
@@ -31,16 +36,26 @@ func _load_save() -> void:
 	if _is_web:
 		var scheme = JavaScriptBridge.eval("localStorage.getItem('key_scheme') || ''")
 		var times_json = JavaScriptBridge.eval("localStorage.getItem('best_times') || '{}'")
+		var coins_json = JavaScriptBridge.eval("localStorage.getItem('collected_coins') || '{}'")
+		var totals_json = JavaScriptBridge.eval("localStorage.getItem('level_coin_totals') || '{}'")
 		key_scheme = str(scheme)
 		var parsed = JSON.parse_string(str(times_json))
 		if parsed is Dictionary:
 			best_times = parsed
+		var parsed_coins = JSON.parse_string(str(coins_json))
+		if parsed_coins is Dictionary:
+			collected_coins = parsed_coins
+		var parsed_totals = JSON.parse_string(str(totals_json))
+		if parsed_totals is Dictionary:
+			level_coin_totals = parsed_totals
 	else:
 		var cfg := ConfigFile.new()
 		if cfg.load(SAVE_PATH) != OK:
 			return
 		key_scheme = cfg.get_value("player", "key_scheme", "")
 		best_times = cfg.get_value("player", "best_times", {})
+		collected_coins = cfg.get_value("player", "collected_coins", {})
+		level_coin_totals = cfg.get_value("player", "level_coin_totals", {})
 
 	if key_scheme != "":
 		_apply_scheme(key_scheme)
@@ -50,11 +65,15 @@ func _write_save() -> void:
 	if _is_web:
 		JavaScriptBridge.eval("localStorage.setItem('key_scheme', '%s')" % key_scheme)
 		JavaScriptBridge.eval("localStorage.setItem('best_times', '%s')" % JSON.stringify(best_times))
+		JavaScriptBridge.eval("localStorage.setItem('collected_coins', '%s')" % JSON.stringify(collected_coins))
+		JavaScriptBridge.eval("localStorage.setItem('level_coin_totals', '%s')" % JSON.stringify(level_coin_totals))
 	else:
 		var cfg := ConfigFile.new()
 		cfg.load(SAVE_PATH)
 		cfg.set_value("player", "key_scheme", key_scheme)
 		cfg.set_value("player", "best_times", best_times)
+		cfg.set_value("player", "collected_coins", collected_coins)
+		cfg.set_value("player", "level_coin_totals", level_coin_totals)
 		cfg.save(SAVE_PATH)
 
 
@@ -116,3 +135,51 @@ func get_best_time(level_name: String) -> String:
 	if best_times.has(level_name):
 		return format_time(best_times[level_name])
 	return "--:--.--"
+
+
+# --- Coins ---
+
+func register_coin(level_id: String, full_coin_id: String) -> void:
+	if not level_coin_totals.has(level_id):
+		level_coin_totals[level_id] = {}
+	if level_coin_totals[level_id].has(full_coin_id):
+		return
+	level_coin_totals[level_id][full_coin_id] = true
+	_write_save()
+
+
+func collect_coin(full_coin_id: String) -> void:
+	if collected_coins.has(full_coin_id):
+		return
+	collected_coins[full_coin_id] = true
+	_write_save()
+	coin_collected.emit(full_coin_id, get_collected_coin_count())
+
+
+func is_coin_collected(full_coin_id: String) -> bool:
+	return collected_coins.has(full_coin_id)
+
+
+func get_collected_coin_count() -> int:
+	return collected_coins.size()
+
+func get_current_level_id() -> String:
+	var scene := get_tree().current_scene
+	if scene == null or scene.scene_file_path == "":
+		return "unknown_level"
+	return scene.scene_file_path.get_file().get_basename()
+
+
+func get_level_coin_total(level_id: String) -> int:
+	if level_coin_totals.has(level_id):
+		return level_coin_totals[level_id].size()
+	return 0
+
+
+func get_level_coin_collected(level_id: String) -> int:
+	var prefix := level_id + "/"
+	var count := 0
+	for id in collected_coins.keys():
+		if str(id).begins_with(prefix):
+			count += 1
+	return count
