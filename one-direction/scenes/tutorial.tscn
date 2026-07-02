@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://cnqaw3cfct0kh" path="res://scenes/lock.tscn" id="15_cmspm"]
 [ext_resource type="Texture2D" uid="uid://lw75hplvwyxh" path="res://assets/tutorial/shhhh.png" id="16_ikfo1"]
 [ext_resource type="Texture2D" uid="uid://bq3o7h62bm1aj" path="res://assets/tutorial/Key.png" id="17_dwom6"]
+[ext_resource type="Texture2D" uid="uid://gspn0jjghw5e" path="res://assets/tutorial/coins.png" id="18_cmspm"]
+[ext_resource type="Script" uid="uid://b4r5t7l2eilhv" path="res://scripts/Coins.gd" id="19_dwom6"]
+[ext_resource type="Texture2D" uid="uid://bpnq0f5v8nef" path="res://assets/tile_0151.png" id="20_bl2xa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0epgs"]
 size = Vector2(20, 19.999985)
@@ -307,6 +310,18 @@ size = Vector2(35.261703, 10.599701)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr8iv"]
 size = Vector2(18, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrdqu"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmspm"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikfo1"]
+size = Vector2(15.6875, 826.5875)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15kfc"]
+radius = 8.0
+
 [node name="Tutorial" type="Node2D" unique_id=1066131666]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=60669497]
@@ -405,6 +420,21 @@ position = Vector2(234, -338)
 scale = Vector2(0.17857143, 0.17857143)
 texture = ExtResource("9_nlqja")
 
+[node name="Shhhh" type="Sprite2D" parent="Tutorial" unique_id=999499539]
+position = Vector2(467, -85.00001)
+scale = Vector2(0.3125, 0.31250003)
+texture = ExtResource("16_ikfo1")
+
+[node name="Key" type="Sprite2D" parent="Tutorial" unique_id=814857919]
+position = Vector2(600.00006, -215)
+scale = Vector2(0.28571427, 0.2857143)
+texture = ExtResource("17_dwom6")
+
+[node name="Coins" type="Sprite2D" parent="Tutorial" unique_id=618873130]
+position = Vector2(121, -295.00003)
+scale = Vector2(0.2544641, 0.25446415)
+texture = ExtResource("18_cmspm")
+
 [node name="DeathZone" type="Node" parent="." unique_id=1323197459]
 
 [node name="Death" type="Area2D" parent="DeathZone" unique_id=244274507]
@@ -412,7 +442,7 @@ position = Vector2(209, -288)
 script = ExtResource("13_ej4tf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death" unique_id=1873442449]
-position = Vector2(-56, -165)
+position = Vector2(-56, -159)
 shape = SubResource("RectangleShape2D_0hilk")
 
 [node name="Death2" type="Area2D" parent="DeathZone" unique_id=877549878]
@@ -460,21 +490,49 @@ shape = SubResource("RectangleShape2D_wr8iv")
 
 [node name="Key" parent="Lock + Key" unique_id=1681951343 instance=ExtResource("14_vrdqu")]
 position = Vector2(464, -124)
+key_id = "key_b"
 
 [node name="Lock" parent="Lock + Key" unique_id=286481310 instance=ExtResource("15_cmspm")]
 position = Vector2(597, -263)
+required_key_id = "key_b"
 
-[node name="Shhhh" type="Sprite2D" parent="." unique_id=999499539]
-position = Vector2(467, -85.00001)
-scale = Vector2(0.3125, 0.31250003)
-texture = ExtResource("16_ikfo1")
+[node name="DeathBox" type="Node" parent="." unique_id=2116690802]
 
-[node name="Key" type="Sprite2D" parent="." unique_id=814857919]
-position = Vector2(600.00006, -215)
-scale = Vector2(0.28571427, 0.2857143)
-texture = ExtResource("17_dwom6")
+[node name="Death2" type="Area2D" parent="DeathBox" unique_id=1438317091]
+position = Vector2(-213, -306)
+script = ExtResource("13_ej4tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=686574095]
+position = Vector2(573.09375, 395)
+shape = SubResource("RectangleShape2D_vrdqu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1808490767]
+position = Vector2(572.84375, -445)
+shape = SubResource("RectangleShape2D_cmspm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1030417460]
+position = Vector2(-90, -25.293762)
+shape = SubResource("RectangleShape2D_ikfo1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1491475208]
+position = Vector2(1232.8438, -25)
+shape = SubResource("RectangleShape2D_ikfo1")
+
+[node name="Coin" type="Node" parent="." unique_id=1382575024]
+
+[node name="Coin" type="Area2D" parent="Coin" unique_id=1585439161]
+position = Vector2(119, -329)
+script = ExtResource("19_dwom6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin/Coin" unique_id=1221467487]
+texture_filter = 1
+texture = ExtResource("20_bl2xa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Coin" unique_id=2074107918]
+shape = SubResource("CircleShape2D_15kfc")
 
 [connection signal="body_entered" from="DeathZone/Death" to="DeathZone/Death" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death2" to="DeathZone/Death2" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death3" to="DeathZone/Death3" method="_on_body_entered"]
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathBox/Death2" to="DeathBox/Death2" method="_on_body_entered"]

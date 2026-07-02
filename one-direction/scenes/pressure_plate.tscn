@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c1frkpnfmb4b4"]
+
+[ext_resource type="Script" uid="uid://bj3bxpr8rtqjo" path="res://scripts/pressure_plate.gd" id="1_ct5vs"]
+[ext_resource type="Texture2D" uid="uid://bcel0mukypwqs" path="res://assets/tile_0149.png" id="2_xtofl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtofl"]
+
+[node name="PressurePlate" type="Area2D" unique_id=312605088]
+script = ExtResource("1_ct5vs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868742441]
+texture_filter = 1
+texture = ExtResource("2_xtofl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=730785045]
+shape = SubResource("RectangleShape2D_xtofl")

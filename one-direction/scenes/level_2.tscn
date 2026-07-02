@@ -316,6 +316,15 @@ size = Vector2(12.5, 82.50001)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2hoc"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guvtl"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igmy8"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qsfm"]
+size = Vector2(15.6875, 826.5875)
+
 [node name="Level_2" type="Node2D" unique_id=75774097]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=493801386]
@@ -536,6 +545,28 @@ texture = ExtResource("10_hey2k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coins/Coin3" unique_id=954979548]
 shape = SubResource("CircleShape2D_g2hoc")
 
+[node name="DeathBox" type="Node" parent="." unique_id=1374224203]
+
+[node name="Death2" type="Area2D" parent="DeathBox" unique_id=1424849507]
+position = Vector2(-213, -306)
+script = ExtResource("8_ne2mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=934526946]
+position = Vector2(695.09375, 413)
+shape = SubResource("RectangleShape2D_guvtl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=550196865]
+position = Vector2(694.84375, -427)
+shape = SubResource("RectangleShape2D_igmy8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1731550540]
+position = Vector2(32, -7.293762)
+shape = SubResource("RectangleShape2D_7qsfm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1188277897]
+position = Vector2(1354.8438, -7)
+shape = SubResource("RectangleShape2D_7qsfm")
+
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="Death Zone/Death" to="Death Zone/Death" method="_on_body_entered"]
 [connection signal="body_entered" from="Death Zone/Death2" to="Death Zone/Death2" method="_on_body_entered"]
@@ -546,3 +577,4 @@ shape = SubResource("CircleShape2D_g2hoc")
 [connection signal="body_entered" from="Death Zone/Death7" to="Death Zone/Death7" method="_on_body_entered"]
 [connection signal="body_entered" from="Death Zone/Death8" to="Death Zone/Death8" method="_on_body_entered"]
 [connection signal="body_entered" from="Death Zone/Death9" to="Death Zone/Death9" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathBox/Death2" to="DeathBox/Death2" method="_on_body_entered"]

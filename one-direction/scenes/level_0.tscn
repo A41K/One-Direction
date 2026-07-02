@@ -307,6 +307,15 @@ size = Vector2(18, 18)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ll25s"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk60w"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_171oe"]
+size = Vector2(1335.5, 11.649925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8wc3"]
+size = Vector2(15.6875, 826.5875)
+
 [node name="Node2D" type="Node2D" unique_id=1690083157]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=525261366]
@@ -484,8 +493,31 @@ texture = ExtResource("9_jv3i5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coins/Coin3" unique_id=204861626]
 shape = SubResource("CircleShape2D_ll25s")
 
+[node name="DeathBox" type="Node" parent="." unique_id=856178716]
+
+[node name="Death2" type="Area2D" parent="DeathBox" unique_id=1149791936]
+position = Vector2(-213, -306)
+script = ExtResource("3_5nv5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1866233723]
+position = Vector2(469.09375, 405)
+shape = SubResource("RectangleShape2D_sk60w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=118978459]
+position = Vector2(468.84375, -435)
+shape = SubResource("RectangleShape2D_171oe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=128216463]
+position = Vector2(-194, -15.293762)
+shape = SubResource("RectangleShape2D_e8wc3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathBox/Death2" unique_id=1969688911]
+position = Vector2(1128.8438, -15)
+shape = SubResource("RectangleShape2D_e8wc3")
+
 [connection signal="body_entered" from="DeathZone/Death" to="DeathZone/Death" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death3" to="DeathZone/Death3" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death4" to="DeathZone/Death4" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death5" to="DeathZone/Death5" method="_on_body_entered"]
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathBox/Death2" to="DeathBox/Death2" method="_on_body_entered"]
