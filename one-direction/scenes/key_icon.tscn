@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://53td0fqoygu"]
+
+[ext_resource type="Script" uid="uid://dehvgioqcn0gn" path="res://scripts/Keyicon.gd" id="1_hiwxj"]
+[ext_resource type="Texture2D" uid="uid://d4gw45jbg2xci" path="res://assets/tile_0027.png" id="2_thwk0"]
+
+[node name="KeyIcon" type="Node2D" unique_id=1748493417]
+script = ExtResource("1_hiwxj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650543040]
+texture_filter = 1
+position = Vector2(0, -97)
+scale = Vector2(4.472222, 4.472222)
+texture = ExtResource("2_thwk0")

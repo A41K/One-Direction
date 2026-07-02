@@ -19,6 +19,9 @@ var spawn_position: Vector2
 
 var is_in_switch_zone: bool = false
 
+const KEY_ICON_SCENE := preload("res://scenes/key_icon.tscn")
+var held_keys: Dictionary = {}
+
 
 func _ready() -> void:
 	print("Player initialized")
@@ -138,3 +141,24 @@ func respawn() -> void:
 	_update_world_visuals()
 
 	print("Player respawned at: ", spawn_position)
+
+
+func pick_up_key(key_id: String) -> void:
+	if held_keys.has(key_id):
+		return  
+
+	var icon := KEY_ICON_SCENE.instantiate()
+	$Sprite2D.add_child(icon)
+	icon.position = Vector2(0, -20)  
+	held_keys[key_id] = icon
+
+
+func has_key(key_id: String) -> bool:
+	return held_keys.has(key_id)
+
+
+func use_key(key_id: String) -> void:
+	if not held_keys.has(key_id):
+		return
+	held_keys[key_id].queue_free()
+	held_keys.erase(key_id)

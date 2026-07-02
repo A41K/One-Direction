@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cnqaw3cfct0kh"]
+
+[ext_resource type="Script" uid="uid://bplkg1y57xyx1" path="res://scripts/lock.gd" id="1_60jus"]
+[ext_resource type="Texture2D" uid="uid://dkqgfbdmi60hw" path="res://assets/tile_0028.png" id="2_s433i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40mgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpkde"]
+size = Vector2(24, 24)
+
+[node name="Lock" type="Node2D" unique_id=286481310]
+script = ExtResource("1_60jus")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1991049623]
+texture_filter = 1
+texture = ExtResource("2_s433i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=171109468]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=174360602]
+shape = SubResource("RectangleShape2D_40mgl")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=2092002230]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=876821054]
+shape = SubResource("RectangleShape2D_hpkde")

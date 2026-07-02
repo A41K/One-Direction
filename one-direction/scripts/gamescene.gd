@@ -5,6 +5,7 @@ func _ready() -> void:
 	_update_level_display("level_0", $Level0/Level0BestTime, $Level0/Level0Coins)
 	_update_level_display("level_1", $Level1/Level1BestTime, $Level1/Level1Coins)
 	_update_level_display("level_2", $Level2/Level2BestTime, $Level2/Level2Coins)
+	_update_level_display("level_3", $Level3/Level3BestTime, $Level3/Level3Coins)
 	$Tutorial/TutorialBestTime.text = Global.get_best_time("tutorial")
 
 
@@ -42,3 +43,7 @@ func _on_level_1_pressed() -> void:
 
 func _on_level_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_2.tscn")
+
+
+func _on_level_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
