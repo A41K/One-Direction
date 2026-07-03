@@ -8,6 +8,8 @@ There's also a speedrun timer that displays your best time (badges are coming in
 
 One Goal, One Direction
 
+(Since the last ship I added 3 more levels, keys, locks, pressure plates and boxes with optimization and bug fixes)
+
 
 Some pictures of the game:
 
