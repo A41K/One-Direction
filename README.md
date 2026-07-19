@@ -1,15 +1,13 @@
-Okay so as the title suggests you can only go in one direction, but the twist is that by double pressing your
-selected movement key you can change the rotation/gravity of the player 90°.
+-- One Direction --
 
-You need to (currently) beat 2 levels (more to come) with this challenge. You can change rotation in the air or
-beat the level in any way.
+This is a really simple game where you need to beat 5+1 platformer levels with
+the ability of changing gravity (double press D/Right arrow).
 
-There's also a speedrun timer that displays your best time (badges are coming in the next update). Can you be the fastest or will you suffer. (like I did)
+Can you get all 3 stars and 3 coins in the levels while new features are getting implemented and the hardness is scaling?
 
-One Goal, One Direction
+It's up to you
 
-(Since the last ship I added 3 more levels, keys, locks, pressure plates and boxes with optimization and bug fixes)
-
+(Since the last ship I added LVL 5, Stars, Better coin display, Achievements menu, Migrated to Godot 4.7 and overall done a lot of QoL updates)
 
 Some pictures of the game:
 

@@ -24,3 +24,7 @@ func _on_play_pressed() -> void:
 	var keychoose_panel = get_node("KeyChoose")
 	if keychoose_panel:
 		keychoose_panel.visible = true
+
+
+func _on_achivements_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/achievements.tscn")

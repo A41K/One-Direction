@@ -17,6 +17,10 @@ var collected_coins: Dictionary = {}
 var level_coin_totals: Dictionary = {}   
 signal coin_collected(coin_id: String, total_collected: int)
 
+# Achievements
+var achievements: Dictionary = {}
+signal achievement_unlocked(achievement_id: String)
+
 var _is_web: bool = false
 
 
@@ -30,6 +34,13 @@ func _process(delta: float) -> void:
 		total_time += delta
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if OS.is_debug_build() and event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F9:
+			reset_save()
+			print("Global save reset.")
+
+
 # --- Save / Load ---
 
 func _load_save() -> void:
@@ -38,6 +49,7 @@ func _load_save() -> void:
 		var times_json = JavaScriptBridge.eval("localStorage.getItem('best_times') || '{}'")
 		var coins_json = JavaScriptBridge.eval("localStorage.getItem('collected_coins') || '{}'")
 		var totals_json = JavaScriptBridge.eval("localStorage.getItem('level_coin_totals') || '{}'")
+		var achievements_json = JavaScriptBridge.eval("localStorage.getItem('achievements') || '{}'")
 		key_scheme = str(scheme)
 		var parsed = JSON.parse_string(str(times_json))
 		if parsed is Dictionary:
@@ -48,6 +60,9 @@ func _load_save() -> void:
 		var parsed_totals = JSON.parse_string(str(totals_json))
 		if parsed_totals is Dictionary:
 			level_coin_totals = parsed_totals
+		var parsed_achievements = JSON.parse_string(str(achievements_json))
+		if parsed_achievements is Dictionary:
+			achievements = parsed_achievements
 	else:
 		var cfg := ConfigFile.new()
 		if cfg.load(SAVE_PATH) != OK:
@@ -56,6 +71,7 @@ func _load_save() -> void:
 		best_times = cfg.get_value("player", "best_times", {})
 		collected_coins = cfg.get_value("player", "collected_coins", {})
 		level_coin_totals = cfg.get_value("player", "level_coin_totals", {})
+		achievements = cfg.get_value("player", "achievements", {})
 
 	if key_scheme != "":
 		_apply_scheme(key_scheme)
@@ -67,6 +83,7 @@ func _write_save() -> void:
 		JavaScriptBridge.eval("localStorage.setItem('best_times', '%s')" % JSON.stringify(best_times))
 		JavaScriptBridge.eval("localStorage.setItem('collected_coins', '%s')" % JSON.stringify(collected_coins))
 		JavaScriptBridge.eval("localStorage.setItem('level_coin_totals', '%s')" % JSON.stringify(level_coin_totals))
+		JavaScriptBridge.eval("localStorage.setItem('achievements', '%s')" % JSON.stringify(achievements))
 	else:
 		var cfg := ConfigFile.new()
 		cfg.load(SAVE_PATH)
@@ -74,6 +91,7 @@ func _write_save() -> void:
 		cfg.set_value("player", "best_times", best_times)
 		cfg.set_value("player", "collected_coins", collected_coins)
 		cfg.set_value("player", "level_coin_totals", level_coin_totals)
+		cfg.set_value("player", "achievements", achievements)
 		cfg.save(SAVE_PATH)
 
 
@@ -83,6 +101,16 @@ func save_scheme(scheme: String) -> void:
 	key_scheme = scheme
 	_write_save()
 	_apply_scheme(scheme)
+
+
+func reset_save() -> void:
+	best_times.clear()
+	collected_coins.clear()
+	level_coin_totals.clear()
+	achievements.clear()
+	key_scheme = ""
+	reset_timer()
+	_write_save()
 
 
 func _apply_scheme(scheme: String) -> void:
@@ -137,6 +165,27 @@ func get_best_time(level_name: String) -> String:
 	return "--:--.--"
 
 
+# --- Stars ---
+
+# Finish under these times (in seconds)
+const STAR_TIME_3: float = 20.0
+const STAR_TIME_2: float = 35.0
+const STAR_TIME_1: float = 60.0
+
+
+func get_stars_earned(level_id: String) -> int:
+	if not best_times.has(level_id):
+		return 0
+	var t: float = best_times[level_id]
+	if t <= STAR_TIME_3:
+		return 3
+	elif t <= STAR_TIME_2:
+		return 2
+	elif t <= STAR_TIME_1:
+		return 1
+	return 0
+
+
 # --- Coins ---
 
 func register_coin(level_id: String, full_coin_id: String) -> void:
@@ -181,5 +230,54 @@ func get_level_coin_collected(level_id: String) -> int:
 	var count := 0
 	for id in collected_coins.keys():
 		if str(id).begins_with(prefix):
+			count += 1
+	return count
+
+
+# --- Achievements ---
+
+const ACHIEVEMENT_LEVELS := ["level_1", "level_2", "level_3", "level_4", "level_5"]
+const ALL_STARS_ACHIEVEMENT := "all_3stars"
+
+func refresh_achievements() -> void:
+	var changed := false
+	var all_three_starred := true
+
+	for level_id in ACHIEVEMENT_LEVELS:
+		var achievement_id := _level_achievement_id(level_id)
+		var earned := get_stars_earned(level_id) >= 3
+		if earned:
+			if not achievements.get(achievement_id, false):
+				achievements[achievement_id] = true
+				achievement_unlocked.emit(achievement_id)
+				changed = true
+		else:
+			all_three_starred = false
+
+	if all_three_starred and not achievements.get(ALL_STARS_ACHIEVEMENT, false):
+		achievements[ALL_STARS_ACHIEVEMENT] = true
+		achievement_unlocked.emit(ALL_STARS_ACHIEVEMENT)
+		changed = true
+
+	if changed:
+		_write_save()
+
+
+func _level_achievement_id(level_id: String) -> String:
+	return "%s_3stars" % level_id
+
+
+func is_achievement_unlocked(achievement_id: String) -> bool:
+	return achievements.get(achievement_id, false)
+
+
+func is_level_3star_achievement_unlocked(level_id: String) -> bool:
+	return is_achievement_unlocked(_level_achievement_id(level_id))
+
+
+func get_levels_3starred_count() -> int:
+	var count := 0
+	for level_id in ACHIEVEMENT_LEVELS:
+		if get_stars_earned(level_id) >= 3:
 			count += 1
 	return count

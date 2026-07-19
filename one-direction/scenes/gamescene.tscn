@@ -2,13 +2,15 @@
 
 [ext_resource type="FontFile" uid="uid://t4jofdeak0hr" path="res://assets/ByteBounce.ttf" id="1_32cxx"]
 [ext_resource type="Script" uid="uid://cfer3pvp86h7a" path="res://scripts/gamescene.gd" id="1_40k76"]
+[ext_resource type="Texture2D" uid="uid://bj5meujargbtu" path="res://assets/Star2.png" id="3_dylta"]
+[ext_resource type="Texture2D" uid="uid://bpnq0f5v8nef" path="res://assets/tile_0151.png" id="4_q85tm"]
 
 [node name="Gamescene" type="Control" unique_id=1105292702]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_40k76")
-metadata/_edit_horizontal_guides_ = [375.0]
-metadata/_edit_vertical_guides_ = [601.0]
+metadata/_edit_horizontal_guides_ = [375.0, 105.0]
+metadata/_edit_vertical_guides_ = [601.0, -31.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=15008534]
 layout_mode = 0
@@ -18,9 +20,10 @@ color = Color(0.34781712, 0.3478169, 0.3478169, 1)
 
 [node name="Label" type="Label" parent="." unique_id=947552860]
 layout_mode = 0
-offset_top = 15.0
-offset_right = 1200.0
-offset_bottom = 103.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 1203.0
+offset_bottom = 92.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 128
 text = "Levels"
@@ -29,9 +32,9 @@ horizontal_alignment = 1
 [node name="Tutorial" type="Button" parent="." unique_id=776995655]
 layout_mode = 0
 offset_left = 483.0
-offset_top = 489.0
+offset_top = 520.0
 offset_right = 708.0
-offset_bottom = 632.0
+offset_bottom = 663.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 64
 text = "Tutorial"
@@ -39,9 +42,9 @@ text = "Tutorial"
 [node name="TutorialBestTime" type="Label" parent="Tutorial" unique_id=283056493]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 151.0
+offset_top = 4.0
 offset_right = 223.0
-offset_bottom = 196.0
+offset_bottom = 49.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
@@ -49,9 +52,9 @@ horizontal_alignment = 1
 [node name="Level0" type="Button" parent="." unique_id=416095282]
 layout_mode = 0
 offset_left = 82.0
-offset_top = 116.0
+offset_top = 105.0
 offset_right = 243.53702
-offset_bottom = 259.0
+offset_bottom = 248.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 64
 text = "Level
@@ -61,14 +64,380 @@ text = "Level
 [node name="Level0BestTime" type="Label" parent="Level0" unique_id=655491723]
 layout_mode = 0
 offset_left = -1.0
-offset_top = 145.0
+offset_top = 143.0
 offset_right = 162.0
-offset_bottom = 190.0
+offset_bottom = 176.0
 theme_override_fonts/font = ExtResource("1_32cxx")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Level0Coins" type="Label" parent="Level0" unique_id=2087179932]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1.0
+offset_top = 117.0
+offset_right = 162.0
+offset_bottom = 140.45604
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level0Star1" type="Sprite2D" parent="Level0" unique_id=128227602]
+texture_filter = 1
+position = Vector2(39, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level0Star2" type="Sprite2D" parent="Level0" unique_id=174998596]
+texture_filter = 1
+position = Vector2(80, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level0Star3" type="Sprite2D" parent="Level0" unique_id=1264320482]
+texture_filter = 1
+position = Vector2(122, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level0Coin1" type="Sprite2D" parent="Level0" unique_id=1298903303]
+visible = false
+texture_filter = 1
+position = Vector2(41.562496, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level0Coin2" type="Sprite2D" parent="Level0" unique_id=1964845126]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level0Coin3" type="Sprite2D" parent="Level0" unique_id=2007088626]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level1" type="Button" parent="." unique_id=504732269]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 105.0
+offset_right = 463.53702
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+1"
+
+[node name="Level1BestTime" type="Label" parent="Level1" unique_id=512586849]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 143.0
+offset_right = 162.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level1Coins" type="Label" parent="Level1" unique_id=1551462987]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 193.0
+offset_right = 162.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level1Star1" type="Sprite2D" parent="Level1" unique_id=1526661529]
+texture_filter = 1
+position = Vector2(39, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level1Star2" type="Sprite2D" parent="Level1" unique_id=1944667357]
+texture_filter = 1
+position = Vector2(80, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level1Star3" type="Sprite2D" parent="Level1" unique_id=1201207826]
+texture_filter = 1
+position = Vector2(122, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level1Coin1" type="Sprite2D" parent="Level1" unique_id=382817659]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level1Coin2" type="Sprite2D" parent="Level1" unique_id=663201558]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level1Coin3" type="Sprite2D" parent="Level1" unique_id=1873430770]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level2" type="Button" parent="." unique_id=49617067]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 105.0
+offset_right = 681.537
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+2"
+
+[node name="Level2BestTime" type="Label" parent="Level2" unique_id=1137930649]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 143.0
+offset_right = 162.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level2Coins" type="Label" parent="Level2" unique_id=926181400]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 193.0
+offset_right = 162.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2Star1" type="Sprite2D" parent="Level2" unique_id=1375092723]
+texture_filter = 1
+position = Vector2(39, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level2Star2" type="Sprite2D" parent="Level2" unique_id=1197834788]
+texture_filter = 1
+position = Vector2(80, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level2Star3" type="Sprite2D" parent="Level2" unique_id=764968372]
+texture_filter = 1
+position = Vector2(122, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level2Coin1" type="Sprite2D" parent="Level2" unique_id=1289502814]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level2Coin2" type="Sprite2D" parent="Level2" unique_id=683714787]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level2Coin3" type="Sprite2D" parent="Level2" unique_id=1909637046]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level3" type="Button" parent="." unique_id=1162461239]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 105.0
+offset_right = 891.537
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+3"
+
+[node name="Level3BestTime" type="Label" parent="Level3" unique_id=1509287503]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 143.0
+offset_right = 162.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level3Coins" type="Label" parent="Level3" unique_id=1569536556]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 193.0
+offset_right = 162.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level3Star1" type="Sprite2D" parent="Level3" unique_id=8413922]
+texture_filter = 1
+position = Vector2(39, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level3Star2" type="Sprite2D" parent="Level3" unique_id=856387276]
+texture_filter = 1
+position = Vector2(80, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level3Star3" type="Sprite2D" parent="Level3" unique_id=1542277146]
+texture_filter = 1
+position = Vector2(122, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level3Coin1" type="Sprite2D" parent="Level3" unique_id=1902592640]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level3Coin2" type="Sprite2D" parent="Level3" unique_id=437021371]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level3Coin3" type="Sprite2D" parent="Level3" unique_id=1005453988]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level4" type="Button" parent="." unique_id=1355772194]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 105.0
+offset_right = 1120.537
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+4"
+
+[node name="Level4BestTime" type="Label" parent="Level4" unique_id=1799182672]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 143.0
+offset_right = 162.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level4Coins" type="Label" parent="Level4" unique_id=1714578826]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 193.0
+offset_right = 162.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level4Star1" type="Sprite2D" parent="Level4" unique_id=2109118519]
+texture_filter = 1
+position = Vector2(39, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level4Star2" type="Sprite2D" parent="Level4" unique_id=1415059004]
+texture_filter = 1
+position = Vector2(80, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level4Star3" type="Sprite2D" parent="Level4" unique_id=898204545]
+texture_filter = 1
+position = Vector2(122, 19)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level4Coin1" type="Sprite2D" parent="Level4" unique_id=407451213]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level4Coin2" type="Sprite2D" parent="Level4" unique_id=1932823540]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level4Coin3" type="Sprite2D" parent="Level4" unique_id=653161193]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level5" type="Button" parent="." unique_id=1466581421]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 323.0
+offset_right = 243.53702
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+5"
+
+[node name="Level5BestTime" type="Label" parent="Level5" unique_id=285935471]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 143.0
+offset_right = 162.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level5Coins" type="Label" parent="Level5" unique_id=320495830]
+visible = false
 layout_mode = 0
 offset_left = -1.0
 offset_top = 193.0
@@ -79,137 +448,44 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level1" type="Button" parent="." unique_id=504732269]
-layout_mode = 0
-offset_left = 302.0
-offset_top = 116.0
-offset_right = 463.53702
-offset_bottom = 259.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 64
-text = "Level
+[node name="Level5Star1" type="Sprite2D" parent="Level5" unique_id=1202300077]
+texture_filter = 1
+position = Vector2(39, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
 
-1"
+[node name="Level5Star2" type="Sprite2D" parent="Level5" unique_id=1279392119]
+texture_filter = 1
+position = Vector2(80, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
 
-[node name="Level1BestTime" type="Label" parent="Level1" unique_id=512586849]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 145.0
-offset_right = 162.0
-offset_bottom = 190.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
+[node name="Level5Star3" type="Sprite2D" parent="Level5" unique_id=1598740978]
+texture_filter = 1
+position = Vector2(122, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
 
-[node name="Level1Coins" type="Label" parent="Level1" unique_id=1551462987]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 193.0
-offset_right = 162.0
-offset_bottom = 216.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Level5Coin1" type="Sprite2D" parent="Level5" unique_id=950481520]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
 
-[node name="Level2" type="Button" parent="." unique_id=49617067]
-layout_mode = 0
-offset_left = 520.0
-offset_top = 113.0
-offset_right = 681.537
-offset_bottom = 256.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 64
-text = "Level
+[node name="Level5Coin2" type="Sprite2D" parent="Level5" unique_id=1548744206]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
 
-2"
-
-[node name="Level2BestTime" type="Label" parent="Level2" unique_id=1137930649]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 145.0
-offset_right = 162.0
-offset_bottom = 190.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-
-[node name="Level2Coins" type="Label" parent="Level2" unique_id=926181400]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 193.0
-offset_right = 162.0
-offset_bottom = 216.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level3" type="Button" parent="." unique_id=1162461239]
-layout_mode = 0
-offset_left = 730.0
-offset_top = 113.0
-offset_right = 891.537
-offset_bottom = 256.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 64
-text = "Level
-
-3"
-
-[node name="Level3BestTime" type="Label" parent="Level3" unique_id=1509287503]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 145.0
-offset_right = 162.0
-offset_bottom = 190.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-
-[node name="Level3Coins" type="Label" parent="Level3" unique_id=1569536556]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 193.0
-offset_right = 162.0
-offset_bottom = 216.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level4" type="Button" parent="." unique_id=1355772194]
-layout_mode = 0
-offset_left = 959.0
-offset_top = 113.0
-offset_right = 1120.537
-offset_bottom = 256.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 64
-text = "Level
-
-4"
-
-[node name="Level4BestTime" type="Label" parent="Level4" unique_id=1799182672]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 146.0
-offset_right = 162.0
-offset_bottom = 191.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-
-[node name="Level4Coins" type="Label" parent="Level4" unique_id=1714578826]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 193.0
-offset_right = 162.0
-offset_bottom = 216.0
-theme_override_fonts/font = ExtResource("1_32cxx")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Level5Coin3" type="Sprite2D" parent="Level5" unique_id=1012772410]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
 
 [node name="Back" type="Button" parent="." unique_id=1451335956]
 layout_mode = 0
@@ -227,4 +503,5 @@ text = "Back"
 [connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Level5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

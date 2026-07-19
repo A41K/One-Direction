@@ -20,6 +20,8 @@ offset_right = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6d6rd")
+metadata/_edit_horizontal_guides_ = [386.0]
+metadata/_edit_vertical_guides_ = [596.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1679824686]
 layout_mode = 0
@@ -36,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -602.0
-offset_top = -147.0
-offset_right = 600.0
-offset_bottom = -43.0
+offset_left = -605.0
+offset_top = -149.0
+offset_right = 597.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_vhbaf")
@@ -50,8 +52,8 @@ vertical_alignment = 1
 
 [node name="Play" type="Button" parent="." unique_id=1299534311]
 layout_mode = 0
-offset_left = -99.0
-offset_right = 98.0
+offset_left = -114.0
+offset_right = 83.0
 offset_bottom = 96.0
 theme_override_font_sizes/font_size = 64
 text = "Play"
@@ -129,6 +131,16 @@ position = Vector2(-2.7499971, -2.2500029)
 scale = Vector2(0.5136719, 0.5136719)
 texture = ExtResource("7_84han")
 
+[node name="Achivements" type="Button" parent="." unique_id=1366055803]
+layout_mode = 0
+offset_left = -236.0
+offset_top = 104.0
+offset_right = 204.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 64
+text = " Achivements "
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="KeyChoose/wasd/wasd" to="KeyChoose" method="_on_wasd_pressed"]
 [connection signal="pressed" from="KeyChoose/arrow/arrow" to="KeyChoose" method="_on_arrow_pressed"]
+[connection signal="pressed" from="Achivements" to="." method="_on_achivements_pressed"]

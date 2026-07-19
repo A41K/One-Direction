@@ -1,0 +1,339 @@
+[gd_scene format=3 uid="uid://d1pso62hw7d4d"]
+
+[ext_resource type="FontFile" uid="uid://t4jofdeak0hr" path="res://assets/ByteBounce.ttf" id="1_font"]
+[ext_resource type="Script" uid="uid://cio8und8jrwm2" path="res://scripts/achievements.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://1yvrm5g18kav" path="res://assets/emptystar.png" id="3_emptystar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_achbox"]
+bg_color = Color(0.22, 0.22, 0.24, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.14, 0.14, 0.15, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="Achievements" type="Control" unique_id=1338883469]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=802561403]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 680.0
+color = Color(0.34781712, 0.3478169, 0.3478169, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1859983927]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 1203.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 80
+text = "Achievements"
+horizontal_alignment = 1
+
+[node name="Ach1" type="Panel" parent="." unique_id=1170800103]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 105.0
+offset_right = 243.537
+offset_bottom = 248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach1" unique_id=1949146130]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach1" unique_id=355486008]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach1" unique_id=1507514877]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach1" unique_id=1268999742]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach1" unique_id=873186827]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
+[node name="Ach2" type="Panel" parent="." unique_id=963386122]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 105.0
+offset_right = 463.537
+offset_bottom = 248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach2" unique_id=803130955]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 2"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach2" unique_id=1104896559]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach2" unique_id=1920783542]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach2" unique_id=1458311913]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach2" unique_id=2054092682]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
+[node name="Ach3" type="Panel" parent="." unique_id=1006717727]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 105.0
+offset_right = 681.537
+offset_bottom = 248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach3" unique_id=298825347]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 3"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach3" unique_id=1748128712]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach3" unique_id=974858493]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach3" unique_id=1046374622]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach3" unique_id=1234386268]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
+[node name="Ach4" type="Panel" parent="." unique_id=132575769]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 105.0
+offset_right = 891.537
+offset_bottom = 248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach4" unique_id=476492755]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 4"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach4" unique_id=1078214267]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach4" unique_id=1680346162]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach4" unique_id=1298428725]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach4" unique_id=928222284]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
+[node name="Ach5" type="Panel" parent="." unique_id=1329623523]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 105.0
+offset_right = 1120.537
+offset_bottom = 248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach5" unique_id=1052055455]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 5"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach5" unique_id=1266452790]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach5" unique_id=193795565]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach5" unique_id=1986021697]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach5" unique_id=1223745256]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
+[node name="AchAll" type="Panel" parent="." unique_id=1406066376]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 332.0
+offset_right = 681.537
+offset_bottom = 475.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="AchAll" unique_id=2067952720]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 28
+text = "All Levels"
+horizontal_alignment = 1
+
+[node name="Pip1" type="Sprite2D" parent="AchAll" unique_id=55752815]
+texture_filter = 1
+position = Vector2(45.15, 49.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Pip2" type="Sprite2D" parent="AchAll" unique_id=446951943]
+texture_filter = 1
+position = Vector2(80.15, 49.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Pip3" type="Sprite2D" parent="AchAll" unique_id=1267823366]
+texture_filter = 1
+position = Vector2(115.15, 49.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Pip4" type="Sprite2D" parent="AchAll" unique_id=2061119771]
+texture_filter = 1
+position = Vector2(63.149994, 79.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Pip5" type="Sprite2D" parent="AchAll" unique_id=84984188]
+texture_filter = 1
+position = Vector2(98.149994, 79.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="AchAll" unique_id=565156636]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "0 / 5 Levels"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="." unique_id=469893492]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 595.0
+offset_right = 181.537
+offset_bottom = 658.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
