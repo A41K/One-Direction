@@ -168,9 +168,9 @@ func get_best_time(level_name: String) -> String:
 # --- Stars ---
 
 # Finish under these times (in seconds)
-const STAR_TIME_3: float = 20.0
-const STAR_TIME_2: float = 35.0
-const STAR_TIME_1: float = 60.0
+const STAR_TIME_3: float = 10.0
+const STAR_TIME_2: float = 18.0
+const STAR_TIME_1: float = 30.0
 
 
 func get_stars_earned(level_id: String) -> int:

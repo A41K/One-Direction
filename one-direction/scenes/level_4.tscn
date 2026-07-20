@@ -473,7 +473,7 @@ shape = SubResource("RectangleShape2D_ifqri")
 [node name="Box + Pressure Plate + Bar" type="Node" parent="." unique_id=1688726953]
 
 [node name="PressurePlate" parent="Box + Pressure Plate + Bar" unique_id=312605088 instance=ExtResource("12_7ewpb")]
-position = Vector2(619, -250)
+position = Vector2(592, -250)
 target_path = NodePath("../Area2D")
 
 [node name="Box" parent="Box + Pressure Plate + Bar" unique_id=85237517 instance=ExtResource("11_rr1tt")]

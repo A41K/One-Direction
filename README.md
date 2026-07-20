@@ -7,7 +7,7 @@ Can you get all 3 stars and 3 coins in the levels while new features are getting
 
 It's up to you
 
-(Since the last ship I added LVL 5, Stars, Better coin display, Achievements menu, Migrated to Godot 4.7 and overall done a lot of QoL updates)
+(Since the last ship I fixed/changed the previous maps, added LVL 5, Stars, Better coin display, Achievements menu, Migrated to Godot 4.7 and overall done a lot of QoL updates)
 
 Some pictures of the game:
 
