@@ -295,11 +295,11 @@ sources/0 = SubResource("TileSetAtlasSource_qjcqe")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8l4j"]
 size = Vector2(203.99359, 10.599701)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wgtu"]
-size = Vector2(86.40546, 10.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypn4w"]
+size = Vector2(95.20273, 10.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uijja"]
-size = Vector2(13.202744, 21.640625)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wgtu"]
+size = Vector2(65.20273, 11.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om4r1"]
 size = Vector2(18, 18)
@@ -388,7 +388,7 @@ position = Vector2(209, -288)
 script = ExtResource("3_5nv5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death" unique_id=545725873]
-position = Vector2(-85, -185)
+position = Vector2(-88, -173)
 shape = SubResource("RectangleShape2D_g8l4j")
 
 [node name="Death3" type="Area2D" parent="DeathZone" unique_id=1794315467]
@@ -396,24 +396,16 @@ position = Vector2(209, -288)
 script = ExtResource("3_5nv5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death3" unique_id=754886278]
-position = Vector2(93, -186)
-shape = SubResource("RectangleShape2D_5wgtu")
+position = Vector2(95.39862, -173)
+shape = SubResource("RectangleShape2D_ypn4w")
 
 [node name="Death4" type="Area2D" parent="DeathZone" unique_id=132483198]
 position = Vector2(209, -288)
 script = ExtResource("3_5nv5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death4" unique_id=1036088021]
-position = Vector2(133, 98)
+position = Vector2(142.60138, 93.4375)
 shape = SubResource("RectangleShape2D_5wgtu")
-
-[node name="Death5" type="Area2D" parent="DeathZone" unique_id=379781192]
-position = Vector2(209, -288)
-script = ExtResource("3_5nv5w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone/Death5" unique_id=1658721146]
-position = Vector2(97, 83.82031)
-shape = SubResource("RectangleShape2D_uijja")
 
 [node name="Timer" type="Node" parent="." unique_id=1749748107]
 
@@ -518,6 +510,5 @@ shape = SubResource("RectangleShape2D_e8wc3")
 [connection signal="body_entered" from="DeathZone/Death" to="DeathZone/Death" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death3" to="DeathZone/Death3" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone/Death4" to="DeathZone/Death4" method="_on_body_entered"]
-[connection signal="body_entered" from="DeathZone/Death5" to="DeathZone/Death5" method="_on_body_entered"]
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathBox/Death2" to="DeathBox/Death2" method="_on_body_entered"]
