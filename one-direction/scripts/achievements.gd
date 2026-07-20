@@ -12,6 +12,7 @@ const LEVEL_ACHIEVEMENT_NODES := {
 	"level_3": "Ach3",
 	"level_4": "Ach4",
 	"level_5": "Ach5",
+	# "level_6": "Ach6",
 }
 
 

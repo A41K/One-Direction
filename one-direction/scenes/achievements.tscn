@@ -20,6 +20,8 @@ corner_radius_bottom_left = 14
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_script")
+metadata/_edit_horizontal_guides_ = [770.0, 770.0, 765.0, 761.0]
+metadata/_edit_vertical_guides_ = [1300.0, 1293.0, 1284.0, 1290.0, 1292.0, 1300.0, 1288.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=802561403]
 layout_mode = 0
@@ -268,6 +270,53 @@ theme_override_font_sizes/font_size = 22
 text = "--:--.--"
 horizontal_alignment = 1
 
+[node name="Ach6" type="Panel" parent="." unique_id=1145845111]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = 332.0
+offset_right = 243.53699
+offset_bottom = 475.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbox")
+
+[node name="Title" type="Label" parent="Ach6" unique_id=1508138679]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 161.537
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "Level 6"
+horizontal_alignment = 1
+
+[node name="Star1" type="Sprite2D" parent="Ach6" unique_id=1256564005]
+texture_filter = 1
+position = Vector2(39, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star2" type="Sprite2D" parent="Ach6" unique_id=1435995006]
+texture_filter = 1
+position = Vector2(80, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Star3" type="Sprite2D" parent="Ach6" unique_id=1709123126]
+texture_filter = 1
+position = Vector2(122, 75)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_emptystar")
+
+[node name="Subtitle" type="Label" parent="Ach6" unique_id=1192686681]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 161.537
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "--:--.--"
+horizontal_alignment = 1
+
 [node name="AchAll" type="Panel" parent="." unique_id=1406066376]
 layout_mode = 0
 offset_left = 520.0
@@ -306,20 +355,27 @@ texture = ExtResource("3_emptystar")
 
 [node name="Pip4" type="Sprite2D" parent="AchAll" unique_id=2061119771]
 texture_filter = 1
-position = Vector2(63.149994, 79.149994)
+position = Vector2(64.149994, 78.149994)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("3_emptystar")
 
 [node name="Pip5" type="Sprite2D" parent="AchAll" unique_id=84984188]
 texture_filter = 1
-position = Vector2(98.149994, 79.149994)
+position = Vector2(99.150024, 78.149994)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_emptystar")
+
+[node name="Pip6" type="Sprite2D" parent="AchAll" unique_id=663273945]
+visible = false
+texture_filter = 1
+position = Vector2(144.99997, 13)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("3_emptystar")
 
 [node name="Subtitle" type="Label" parent="AchAll" unique_id=565156636]
 layout_mode = 0
 offset_top = 105.0
-offset_right = 161.537
+offset_right = 161.53711
 offset_bottom = 138.0
 theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 22

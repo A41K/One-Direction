@@ -315,11 +315,17 @@ size = Vector2(25, 115)
 [sub_resource type="CircleShape2D" id="CircleShape2D_675ay"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11qgq"]
+size = Vector2(47.5, 9.000006)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0ibv"]
-size = Vector2(47.5, 11.649925)
+size = Vector2(47.5, 9.824957)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqmrt"]
-size = Vector2(80, 11.649925)
+size = Vector2(80, 8.824963)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnpj"]
+size = Vector2(47.5, 9.824963)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmmei"]
 size = Vector2(56.75, 9.824963)
@@ -328,12 +334,15 @@ size = Vector2(56.75, 9.824963)
 size = Vector2(10.9375, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y88yj"]
-size = Vector2(63, 11.649925)
+size = Vector2(63, 9.824963)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_675ay"]
 size = Vector2(11.375, 64.82497)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxced"]
+size = Vector2(110.6875, 9.824963)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1ve"]
 size = Vector2(110.6875, 9.824963)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sykev"]
@@ -543,15 +552,15 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death2" unique_id=1679913654]
-position = Vector2(538.25, 165)
-shape = SubResource("RectangleShape2D_s0ibv")
+position = Vector2(538.25, 164.5)
+shape = SubResource("RectangleShape2D_11qgq")
 
 [node name="Death3" type="Area2D" parent="Death Zone" unique_id=1139022600]
 position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death3" unique_id=1915985603]
-position = Vector2(698, 164)
+position = Vector2(698, 164.91248)
 shape = SubResource("RectangleShape2D_s0ibv")
 
 [node name="Death4" type="Area2D" parent="Death Zone" unique_id=216207599]
@@ -559,7 +568,7 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death4" unique_id=1112209073]
-position = Vector2(795, 10)
+position = Vector2(795, 11.412476)
 shape = SubResource("RectangleShape2D_kqmrt")
 
 [node name="Death5" type="Area2D" parent="Death Zone" unique_id=979578355]
@@ -567,8 +576,8 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death5" unique_id=219566796]
-position = Vector2(874, 228)
-shape = SubResource("RectangleShape2D_s0ibv")
+position = Vector2(874, 228.91248)
+shape = SubResource("RectangleShape2D_hgnpj")
 
 [node name="Death6" type="Area2D" parent="Death Zone" unique_id=2139829903]
 position = Vector2(159, -376)
@@ -591,7 +600,7 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death8" unique_id=353446722]
-position = Vector2(418.5, 292)
+position = Vector2(418.5, 292.91248)
 shape = SubResource("RectangleShape2D_y88yj")
 
 [node name="Death9" type="Area2D" parent="Death Zone" unique_id=1175372003]
@@ -607,7 +616,7 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death10" unique_id=967242098]
-position = Vector2(201.65625, -390)
+position = Vector2(201.65625, -389)
 shape = SubResource("RectangleShape2D_hxced")
 
 [node name="Death11" type="Area2D" parent="Death Zone" unique_id=914482305]
@@ -615,8 +624,8 @@ position = Vector2(159, -376)
 script = ExtResource("10_675ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death11" unique_id=319145376]
-position = Vector2(633, -70)
-shape = SubResource("RectangleShape2D_hxced")
+position = Vector2(619, -69)
+shape = SubResource("RectangleShape2D_5g1ve")
 
 [node name="Death12" type="Area2D" parent="Death Zone" unique_id=2038453402]
 position = Vector2(88, -342)

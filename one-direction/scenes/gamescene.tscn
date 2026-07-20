@@ -487,6 +487,80 @@ position = Vector2(115.5625, 124.5625)
 scale = Vector2(2.0624995, 2.0624995)
 texture = ExtResource("4_q85tm")
 
+[node name="Level6" type="Button" parent="." unique_id=1029678539]
+visible = false
+layout_mode = 0
+offset_left = 302.0
+offset_top = 323.0
+offset_right = 463.53702
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 64
+text = "Level
+
+6"
+
+[node name="Level6BestTime" type="Label" parent="Level6" unique_id=662794041]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 144.0
+offset_right = 162.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Level6Coins" type="Label" parent="Level6" unique_id=1143906484]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 193.0
+offset_right = 162.0
+offset_bottom = 216.45604
+theme_override_fonts/font = ExtResource("1_32cxx")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level6Star1" type="Sprite2D" parent="Level6" unique_id=1084435828]
+texture_filter = 1
+position = Vector2(39, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level6Star2" type="Sprite2D" parent="Level6" unique_id=694228179]
+texture_filter = 1
+position = Vector2(80, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level6Star3" type="Sprite2D" parent="Level6" unique_id=458904858]
+texture_filter = 1
+position = Vector2(122, 16)
+scale = Vector2(0.05306123, 0.05306123)
+texture = ExtResource("3_dylta")
+
+[node name="Level6Coin1" type="Sprite2D" parent="Level6" unique_id=1548846876]
+visible = false
+texture_filter = 1
+position = Vector2(41.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level6Coin2" type="Sprite2D" parent="Level6" unique_id=700416085]
+visible = false
+texture_filter = 1
+position = Vector2(78.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
+[node name="Level6Coin3" type="Sprite2D" parent="Level6" unique_id=800445164]
+visible = false
+texture_filter = 1
+position = Vector2(115.5625, 124.5625)
+scale = Vector2(2.0624995, 2.0624995)
+texture = ExtResource("4_q85tm")
+
 [node name="Back" type="Button" parent="." unique_id=1451335956]
 layout_mode = 0
 offset_left = 20.0
@@ -504,4 +578,5 @@ text = "Back"
 [connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="Level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Level6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

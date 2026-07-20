@@ -299,19 +299,22 @@ size = Vector2(18, 18)
 size = Vector2(113, 9.000006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2mo"]
-size = Vector2(13.749199, 95.649925)
+size = Vector2(9.000013, 78.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2hoc"]
-size = Vector2(13.749199, 48.649933)
+size = Vector2(9.874599, 48.649933)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sb0y"]
+size = Vector2(66, 9.500003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hey2k"]
 size = Vector2(48.5, 9.000006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_172wr"]
-size = Vector2(12.5, 82.50001)
+size = Vector2(9, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bv48q"]
-size = Vector2(12.5, 48.250004)
+size = Vector2(9, 48.250004)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k22d5"]
 size = Vector2(80.25, 9.125004)
@@ -457,7 +460,7 @@ position = Vector2(380, -396)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death2" unique_id=169415408]
-position = Vector2(-65, 37)
+position = Vector2(-62.5, 36)
 shape = SubResource("RectangleShape2D_ne2mo")
 
 [node name="Death3" type="Area2D" parent="Death Zone" unique_id=513597287]
@@ -465,7 +468,7 @@ position = Vector2(293, -220)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death3" unique_id=1523318488]
-position = Vector2(-65, 19.675034)
+position = Vector2(-64.9373, 20)
 shape = SubResource("RectangleShape2D_g2hoc")
 
 [node name="Death5" type="Area2D" parent="Death Zone" unique_id=272257379]
@@ -473,8 +476,8 @@ position = Vector2(506, 173)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death5" unique_id=1562600783]
-position = Vector2(-168.5, -271.5)
-shape = SubResource("RectangleShape2D_6cvei")
+position = Vector2(-169, -272.75)
+shape = SubResource("RectangleShape2D_1sb0y")
 
 [node name="Death6" type="Area2D" parent="Death Zone" unique_id=1592928007]
 position = Vector2(572, 156)
@@ -497,7 +500,7 @@ position = Vector2(771, 146)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death8" unique_id=1765504331]
-position = Vector2(-117.25, -234.25)
+position = Vector2(-117.5, -234)
 shape = SubResource("RectangleShape2D_172wr")
 
 [node name="Death9" type="Area2D" parent="Death Zone" unique_id=1430114313]
@@ -505,7 +508,7 @@ position = Vector2(589, -259)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death9" unique_id=1771007292]
-position = Vector2(17, 11)
+position = Vector2(16.5, 11)
 shape = SubResource("RectangleShape2D_bv48q")
 
 [node name="Death10" type="Area2D" parent="Death Zone" unique_id=341947346]
@@ -521,7 +524,7 @@ position = Vector2(311, -437)
 script = ExtResource("8_ne2mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Death11" unique_id=2071785366]
-position = Vector2(58.375, -8.5625)
+position = Vector2(58, -8)
 shape = SubResource("RectangleShape2D_k6a82")
 
 [node name="Coins" type="Node" parent="." unique_id=526282373]
